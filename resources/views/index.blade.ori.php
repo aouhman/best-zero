@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 
-<!-- Mirrored from themes.vivantdesigns.com/Best-zero/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Jun 2016 09:54:55 GMT -->
+<!-- Mirrored from themes.vivantdesigns.com/streamlined/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Jun 2016 09:54:55 GMT -->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Best-zero</title>
+<title>Streamlined - Contact Management/CRM Template</title>
         <base href="/"/>
 
 <!-- Compiled and minified Bootstrap CSS -->
@@ -32,7 +32,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="dashboard.html">Best-zero</a>
+                      <a class="navbar-brand" href="dashboard.html">Streamlined</a>
                     </div>
 
 
@@ -63,9 +63,9 @@
                                         <button class="btn btn-default popover-close" type="button">Cancel</button>
                                     </form>
 '><i class="fa fa-plus-circle"></i> New Contact</button>
-    <button popover id="popover-content"  class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new meeting" data-placement="bottom" data-content='
-                                        @{{info}}
-                                       <form popover action="" name="NewMeetingForm" class="form-horizontal" >
+    <button class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new meeting" data-placement="bottom" data-content='
+                                        @{{tab.msg}}
+                                       <form action="" name="NewMeetingForm" class="form-horizontal">
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 Meeting Title<br />
@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 User<br />
-                                                <input class="form-control"  id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default "/><br />
+                                                <input class="form-control"  id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default"/><br />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -87,16 +87,14 @@
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 Meeting Description<br />
-                                                <textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..."></textarea>
-
+                                                <input class="form-control" id="meetingDescription" ng-model="meeting.description" type="text" placeholder="Description of your Meeting"/>
                                             </div>
                                         </div>
                                         <hr />
-                                        <button type="submit" ng-click="alert();storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>
+                                        <button type="submit" ng-click="storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>
                                         <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
 
                                     </form>
-
 '><i class="fa fa-plus-circle"></i> New meeting</button>
                             </li>
                             <li class="action">
@@ -210,7 +208,7 @@
                                 <header class="panel-heading clearfix">
                                     <a data-target="documentation/index.html" href="#" class="btn btn-default pull-right" rel="#overlay"><i class="fa fa-question-circle"></i></a>
                                     <h2 class="panel-title">
-                                        Welcome to Best-zero!
+                                        Welcome to Streamlined!
                                     </h2>
                                 </header>
                                 <section class="panel-body container-fluid">
@@ -232,17 +230,17 @@
 
                                     <div class="row">
                                         <figure class="col-md-4 text-center">
-                                            <img src="/images/asset1.jpg" width="100%" />
+                                            <img src="images/asset1.jpg" width="100%" />
                                             <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                                         </figure>
                                         <figure class="col-md-4 text-center">
-                                            <img src="/images/asset2.jpg" width="100%" />
+                                            <img src="images/asset2.jpg" width="100%" />
                                             <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                                         </figure>
                                         <figure class="col-md-4 text-center">
-                                            <img src="/images/asset3.jpg" width="100%" />
+                                            <img src="images/asset3.jpg" width="100%" />
                                             <h3>Lorem Ipsum Dolor Sit Amet</h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
                                         </figure>
@@ -303,6 +301,7 @@
 
 </body>
 
+<!-- Mirrored from themes.vivantdesigns.com/streamlined/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Jun 2016 09:55:04 GMT -->
 </html>
 
 

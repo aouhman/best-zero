@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Meeting;
 
 use App\Http\Requests;
 
@@ -55,16 +56,13 @@ class MeetingController extends Controller
         $time = $request->input('time');
         $user_id = $request->input('user_id');
 
-        $meeting = [
+
+        $meeting = new Meeting([
             'title' => $title,
             'description' => $description,
             'time' => $time,
-            'user_id' => $user_id,
-            'view_meeting' => [
-                'href' => 'api/v1/meeting/1',
-                'method' => 'GET'
-            ]
-        ];
+            'user_id' => $user_id]);
+        $meeting->save();
 
         $response = [
             'msg' => 'Meeting created',
