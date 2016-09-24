@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="app">
 
-<!-- Mirrored from themes.vivantdesigns.com/Best-zero/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Jun 2016 09:54:55 GMT -->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Best-zero</title>
-        <base href="/"/>
+<base href=""/>
 
-<!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-<!-- Optional theme -->
 <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-
-<!-- Compiled and minified FontAwesome CSS -->
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 
 <link rel="stylesheet" media="screen" href="/css/style.css" />
+<link rel="stylesheet" media="screen" href="/css/fullcalendar.min.css" />
 </head>
 <body>
     <div id="wrapper"  ng-controller="meetingController">
@@ -32,14 +27,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="dashboard.html">Best-zero</a>
+                      <a class="navbar-brand" href="/api/v1/#/index">Best-zero</a>
                     </div>
 
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul id="main-nav" class="nav navbar-nav">
                             <li class="action">
-                                <button class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new contact" data-placement="bottom" data-content='                                    <form class="form-horizontal">
+                                <button class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new contact" data-placement="bottom" data-content=' <form class="form-horizontal">
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 First Name<br />
@@ -64,38 +59,39 @@
                                     </form>
 '><i class="fa fa-plus-circle"></i> New Contact</button>
     <button popover id="popover-content"  class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new meeting" data-placement="bottom" data-content='
-                                        @{{info}}
-                                       <form popover action="" name="NewMeetingForm" class="form-horizontal" >
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                Meeting Title<br />
-                                                <input class="form-control"  id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting"/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                User<br />
-                                                <input class="form-control"  id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default "/><br />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                Meeting Time<br />
-                                                <input class="form-control" id="meetingTime" ng-model="meeting.time" type="text" placeholder="Start and end time ..."/>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                Meeting Description<br />
-                                                <textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..."></textarea>
+                                        {{--@{{info}}--}}
 
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <button type="submit" ng-click="alert();storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>
-                                        <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+                                       {{--<form popover action="" name="NewMeetingForm" class="form-horizontal" >--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="col-sm-12">--}}
+                                                {{--Meeting Title<br />--}}
+                                                {{--<input class="form-control"  id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting"/>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="col-sm-12">--}}
+                                                {{--User<br />--}}
+                                                {{--<input class="form-control"  id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default "/><br />--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="col-sm-12">--}}
+                                                {{--Meeting Time<br />--}}
+                                                {{--<input class="form-control" id="meetingTime" ng-model="meeting.time" type="text" placeholder="Start and end time ..."/>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<div class="col-sm-12">--}}
+                                                {{--Meeting Description<br />--}}
+                                                {{--<textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..."></textarea>--}}
 
-                                    </form>
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<hr />--}}
+                                        {{--<button type="submit" ng-click="alert();storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>--}}
+                                        {{--<button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>--}}
+
+                                    {{--</form>--}}
 
 '><i class="fa fa-plus-circle"></i> New meeting</button>
                             </li>
@@ -126,7 +122,7 @@
                             </li>
                             <li class="active"><a href="dashboard.html">Dashboard</a></li>
                             <li><a href="profile.html">Profile</a></li>
-                            <li><a href="calendar.html">Calendar</a></li>
+                            <li><a href="/api/v1/#/calendar">Calendar</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrator <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
@@ -197,87 +193,15 @@
                             </ul>
                         </nav>
                     </aside>
-
                     <!-- Sidebar End -->
-
-
-                    <!-- Main Section -->
-
-                    <section class="col-md-9 no-padding">
-                        <div class="main-section">
-
-                            <div class="main-content panel panel-default">
-                                <header class="panel-heading clearfix">
-                                    <a data-target="documentation/index.html" href="#" class="btn btn-default pull-right" rel="#overlay"><i class="fa fa-question-circle"></i></a>
-                                    <h2 class="panel-title">
-                                        Welcome to Best-zero!
-                                    </h2>
-                                </header>
-                                <section class="panel-body container-fluid">
-                                    <div class="row">
-                                      <div class="col-md-12">
-                                          <div class="alert alert-info text-center">
-                                              <h4>Get started: <a href="#">Add contacts to your account</a></h4>
-                                              <p>Vestibulum ultrices vehicula leo ac tristique. Mauris id nisl nibh. Cras egestas vestibulum nisl, nec eleifend nunc pulvinar non.</p>
-                                          </div>
-                                      </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <hgroup class="col-md-12 text-center">
-                                            <h2>Sed magna enim, tempus eu rutrum ornare.</h2>
-                                            <h4>Donec suscipit fermentum turpis, a feugiat felis tincidunt eu</h4>
-                                        </hgroup>
-                                    </div>
-
-                                    <div class="row">
-                                        <figure class="col-md-4 text-center">
-                                            <img src="/images/asset1.jpg" width="100%" />
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
-                                        </figure>
-                                        <figure class="col-md-4 text-center">
-                                            <img src="/images/asset2.jpg" width="100%" />
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
-                                        </figure>
-                                        <figure class="col-md-4 text-center">
-                                            <img src="/images/asset3.jpg" width="100%" />
-                                            <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet massa at lorem molestie egestas. Donec ipsum purus, consequat ac gravida sed, volutpat ut velit.</p>
-                                        </figure>
-                                    </div>
-
-                                    <div class="other-options">
-                                        <h3 class="other">Other things to do...</h3>
-                                        <ul>
-                                            <li>
-                                                <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                                <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                            </li>
-                                            <li>
-                                                <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                                <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                            </li>
-                                            <li>
-                                                <h4><a href="#">Lorem Ipsum Dolor Sit Amet</a></h4>
-                                                <p>Nam sit amet massa at lorem molestie egestas.</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-
-                    </section>
-
-                    <!-- Main Section End -->
-
+                 <ng-view></ng-view>
                 </div>
             </div>
             <div id="push"></div>
         </section>
+
     </div>
+
 
     <footer>
         <div id="footer-inner" class="container">
@@ -286,67 +210,20 @@
     </footer>
 
 
-    <!-- render blocking scripts -->
 
-    <!-- jQuery JS -->
-    <script src="/js/jquery.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="/js/bootstrap.min.js"></script>
-
-    <!-- Main Script -->
-    <script src="/js/global.js"></script>
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+    <script src="/vendor/global.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
     <script src="/vendor/angular/angular-route.min.js"></script>
-    <script src="/myApp.js"></script>
-
+    <script src="/vendor/angular/angular-resource.js"></script>
+    <script src="/vendor/angular/angular-sanitize.js"></script>
+    <script src="/vendor/moment.min.js"></script>
+    <script src="/vendor/fullcalendar.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/DefaultContentController.js"></script>
+    <script src="/js/controllers/CalendarController.js"></script>
 
 </body>
 
 </html>
-
-
-
-{{--<html lang="en" ng-app="myApp">--}}
-    {{--<head>--}}
-        {{--<meta charset="UTF8">--}}
-        {{--<base href="/"/>--}}
-        {{--<title>let it go</title>--}}
-        {{--<!-- Add the usual things here -->--}}
-    {{--</head>--}}
-    {{--<body>--}}
-        {{--<div id="maincontent" ng-controller="meetingController">--}}
-        {{--<div class="class">--}}
-            {{--<h1>New Meeting</h1>--}}
-            {{--<hr/>--}}
-            {{--<form action="" name="NewMeetingForm">--}}
-                {{--<fieldset>--}}
-                    {{--<label for="meetingTitle">Meeting Title</label>--}}
-                    {{--<input id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting"/>--}}
-
-                    {{--<label for="meetingUserId">User </label>--}}
-                    {{--<input id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default"/>--}}
-
-                    {{--<label for="meetingTime">Meeting Time</label>--}}
-                    {{--<input id="meetingTime" ng-model="meeting.time" type="text" placeholder="Start and end time ..."/>--}}
-
-                     {{--<label for="meetingDescription">Meeting Description</label>--}}
-                    {{--<input id="meetingDescription" ng-model="meeting.description" type="text" placeholder="Description of your Meeting" required/>--}}
-
-
-                {{--<br/>--}}
-                {{--<button type="submit" ng-click="storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>--}}
-                {{--<button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>--}}
-                {{--</fieldset>--}}
-            {{--</form>--}}
-        {{--</div>--}}
-        {{--@{{messages.msg}}--}}
-       {{--</div>--}}
-        {{--<script src="/vendor/angular/angular.min.js">--}}
-
-        {{--</script>--}}
-        {{--<script src="/vendor/angular/angular-route.min.js"></script>--}}
-        {{--<script src="/myApp.js"></script>--}}
-
-    {{--</body>--}}
-{{--</html>--}}
