@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Best-zero</title>
+<base href=""/>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+	<body ng-app="app">
+		<div id="fb-root"></div>
+
+
+
+
+		<div class="apollo">
+
+			<div class="apollo-container clearfix">
+				<div class="apollo-facebook">
+					<div class="apollo-image"></div>
+				</div>
+
+				<div class="apollo-register" ng-controller="HomeController">
+ @{{results.msg}}
+					<form class="form-signin" id="apollo-register-form" name="newUserForm">
+						<div class="form-group">
+							<input type="text" value="" id="registerEmail" class="form-control email" placeholder="Email address" ng-model="user.email"/>
+						</div>
+
+						<div class="form-group">
+							<input type="password" value=""  class="form-control" placeholder="Password" ng-model="user.password"/>
+						</div>
+
+						<div class="form-group">
+							<input type="password" value="" class="form-control" placeholder="Confirm password" />
+						</div>
+
+
+						<p class="apollo-seperator"> about you </p>
+
+						<div class="form-group">
+							<input type="text" value="" class="form-control" id="firstName" placeholder="First name" ng-model="user.name"/>
+						</div>
+
+						<div class="form-group">
+							<input type="text" value="" class="form-control" id="lastName" placeholder="Last name" ng-model="user.name"/>
+						</div>
+
+						<button class="btn btn-lg btn-block btn-primary" type="submit" ng-click="storeUser(user)">Register </button>
+					</form>
+
+					<p class="apollo-back"> <a href="#"><i class="icon-arrow-left"></i> back to login</a> </p>
+				</div>
+
+				<div class="apollo-login">
+					<button class="btn btn-block btn-facebook btn-lg">Connect with <strong>Facebook</strong></button>
+
+					<p class="apollo-seperator"> or </p>
+
+					<form action="/api/v1/#index" class="form-signin" id="apollo-login-form" >
+						<div class="form-group">
+							<input type="text" value="" class="form-control email" placeholder="Email address"/>
+						</div>
+
+						<div class="form-group">
+							<input type="password" value="" class="form-control" placeholder="Password"/>
+						</div>
+
+						<button class="btn btn-lg btn-signin btn-block" type="submit">Sign in</button>
+					</form>
+
+					<p class="apollo-register-account"> <a href="#" class="register-link">Need an account? <strong>Register here </strong><i class="icon-arrow-right"></i></a><br/><a href="#" class="password-link"><small>Forgot your password?</small></a> </p>
+					<p class="apollo-change-account"> <a href="#"><i class="icon-arrow-left"></i><strong>Not you?</strong> Sign in as a different user</a> </p>
+				</div>
+
+				<div class="apollo-forgotten-password">
+					<form class="form-signin" id="apollo-forgotten-password-form">
+						<div class="form-group">
+							<input type="text" value="" class="form-control email" placeholder="Email address"/>
+						</div>
+						<button class="btn btn-lg btn-block btn-primary" type="submit">Reset password</button>
+					</form>
+
+					<p class="apollo-back"> <a href="#"><i class="icon-arrow-left"></i> back to login</a> </p>
+				</div>
+
+				<div class="apollo-logging-in">
+					<h2>Welcome back<span class="user-name"></span>!</h2>
+					<p><strong>Please wait whilst we securely log you in&hellip;</strong></p>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim enim suscipit massa ornare rutrum.</p>
+				</div>
+
+				<div class="apollo-registering">
+					<h2>Thanks<span class="user-name"></span>! </h2>
+					<p><strong>We've sent you an activation email, blah blah...</strong></p>
+					<p>Nullam ac erat nunc. Donec in orci purus, vel tempor tortor. Integer tincidunt ipsum sed ipsum scelerisque malesuada.</p>
+				</div>
+
+				<div class="apollo-password-reset">
+					<h2>Check your email</h2>
+					<p><strong>We've sent you a link, blah blah...</strong></p>
+					<p>Nullam ac erat nunc. Donec in orci purus, vel tempor tortor. Integer tincidunt ipsum sed ipsum scelerisque malesuada.</p>
+				</div>
+			</div>
+		</div>
+
+    <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/angular/angular-route.min.js"></script>
+    <script src="/vendor/angular/angular-resource.js"></script>
+    <script src="/vendor/angular/angular-sanitize.js"></script>
+    <script src="/vendor/images.js"></script>
+    <script src="/vendor/md5.js"></script>
+    <script src="/vendor/main.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
+    <script src="/vendor/main.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/HomeController.js"></script>
+
+
+
+		<script>
+			$(function(){
+				$('[name="optionsRadios"]').change(function(){
+					if($(this).val() == 'yes'){
+						window.location.href="index5f71.html?hasAccount"
+					}
+					else {
+						window.location.href = 'index.html';
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

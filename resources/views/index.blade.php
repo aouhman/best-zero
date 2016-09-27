@@ -158,9 +158,10 @@
                                 <li><a href="contacts.html"><i class="fa fa-book"></i>  Contacts <span class="badge pull-right">2</span></a></li>
                                 <li><a href="tasks.html"><i class="fa fa-tasks"></i> Tasks <span class="badge bg-warning pull-right">1</span></a></li>
                                 <li><a href="notes.html"><i class="fa fa-file-text"></i> Notes</a></li>
+                                <li><a href="/api/v1/#/meetings"><i class="fa fa-users"></i> Meetings</a></li>
                             </ul>
                         </nav>
-
+lorem
                         <nav class="subnav recent">
                             <h4>Recent Contacts</h4>
                             <ul class="nav nav-pills nav-stacked">
@@ -211,10 +212,14 @@
 
 
 
+
     <script src="/vendor/jquery.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
     <script src="/vendor/global.js"></script>
+    <script src="/vendor/underscore-1.4.4.min.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
+    <script src="/vendor/angular/angular-route.js"></script>
     <script src="/vendor/angular/angular-route.min.js"></script>
     <script src="/vendor/angular/angular-resource.js"></script>
     <script src="/vendor/angular/angular-sanitize.js"></script>
@@ -223,6 +228,8 @@
     <script src="/js/app.js"></script>
     <script src="/js/controllers/DefaultContentController.js"></script>
     <script src="/js/controllers/CalendarController.js"></script>
+    <script src="/js/controllers/MeetingListController.js"></script>
+    <script src="/js/directives/meetingThumbnail.js"></script>
 
 </body>
 
