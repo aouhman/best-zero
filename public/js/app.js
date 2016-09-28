@@ -25,10 +25,12 @@ var app = angular.module('app', ['ngSanitize', 'ngResource', 'ngRoute'])
     });
 
 app.controller('meetingController', function ($scope, $http, $window) {
-    $scope.meeting = {};
-    $scope.info = "Comment crriger ce bugue";
 
-    $scope.storeMeeting = function (meeting, newMeetingForm) {
+
+    $scope.meeting = {};
+    $scope.countMeeting = 2;
+
+   $scope.storeMeeting = function (meeting, newMeetingForm) {
         return $http.post("/api/v1/meeting", {
                 "time": meeting.time,
                 "title": meeting.title,
@@ -37,17 +39,20 @@ app.controller('meetingController', function ($scope, $http, $window) {
             }
         ).then(function (response) {
                 $scope.results = response.data;
+                $window.location.href = '/api/v1/#/meetings'; //redirect to home
+                $window.location.href = '/api/v1/#/index'; //redirect to home
             });
     };
 
     $scope.deleteMeeting = function (id) {
-        if (confirm('Really delete this?')) {
+        //if (confirm('Really delete this?')) {
                 return $http.delete("/api/v1/meeting/" + id, {}
                 ).then(function (response) {
-                        $scope.deleteMeeting = response.data;
+                        $scope.meetingInfo = response.data;
+                        $window.location.href = '/api/v1/#/'; //redirect to home
                         $window.location.href = '/api/v1/#/meetings'; //redirect to home
                     });
-        }
+        //}
     };
 
     $scope.cancelEdit = function () {

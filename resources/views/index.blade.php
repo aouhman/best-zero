@@ -158,7 +158,7 @@
                                 <li><a href="contacts.html"><i class="fa fa-book"></i>  Contacts <span class="badge pull-right">2</span></a></li>
                                 <li><a href="tasks.html"><i class="fa fa-tasks"></i> Tasks <span class="badge bg-warning pull-right">1</span></a></li>
                                 <li><a href="notes.html"><i class="fa fa-file-text"></i> Notes</a></li>
-                                <li><a href="/api/v1/#/meetings"><i class="fa fa-users"></i> Meetings</a></li>
+                                <li><a href="/api/v1/#/meetings"><i class="fa fa-users"></i> Meetings <span class="badge bg-warning pull-right"> @{{countMeeting}}</span></a></li>
                             </ul>
                         </nav>
 lorem
@@ -206,7 +206,7 @@ lorem
 
     <footer>
         <div id="footer-inner" class="container">
-            <div><span class="pull-right"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity from 127.0.0.1 - <a href="#">Details</a> | &copy; 2010. All rights reserved. Theme design by VivantDesigns</div>
+            <div><span class="pull-right"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity - <a href="#">Details</a> | &copy; 2016. All rights reserved.</div>
         </div>
     </footer>
 
