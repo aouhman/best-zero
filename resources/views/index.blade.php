@@ -15,9 +15,9 @@
 <link rel="stylesheet" media="screen" href="/css/style.css" />
 <link rel="stylesheet" media="screen" href="/css/fullcalendar.min.css" />
 </head>
-<body>
-    <div id="wrapper"  ng-controller="meetingController">
-        <header>
+<body ng-controller="meetingController">
+    <div id="wrapper">
+        <header ng-if="!navigationValue">
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -59,40 +59,6 @@
                                     </form>
 '><i class="fa fa-plus-circle"></i> New Contact</button>
     <button popover id="popover-content"  class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new meeting" data-placement="bottom" data-content='
-                                        {{--@{{info}}--}}
-
-                                       {{--<form popover action="" name="NewMeetingForm" class="form-horizontal" >--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<div class="col-sm-12">--}}
-                                                {{--Meeting Title<br />--}}
-                                                {{--<input class="form-control"  id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting"/>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<div class="col-sm-12">--}}
-                                                {{--User<br />--}}
-                                                {{--<input class="form-control"  id="meetingUserId" ng-model="meeting.userId" type="text" placeholder="User by default "/><br />--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<div class="col-sm-12">--}}
-                                                {{--Meeting Time<br />--}}
-                                                {{--<input class="form-control" id="meetingTime" ng-model="meeting.time" type="text" placeholder="Start and end time ..."/>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<div class="form-group">--}}
-                                            {{--<div class="col-sm-12">--}}
-                                                {{--Meeting Description<br />--}}
-                                                {{--<textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..."></textarea>--}}
-
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<hr />--}}
-                                        {{--<button type="submit" ng-click="alert();storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>--}}
-                                        {{--<button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>--}}
-
-                                    {{--</form>--}}
-
 '><i class="fa fa-plus-circle"></i> New meeting</button>
                             </li>
                             <li class="action">
@@ -122,14 +88,14 @@
                             </li>
                             <li class="active"><a href="dashboard.html">Dashboard</a></li>
                             <li><a href="profile.html">Profile</a></li>
-                            <li><a href="/api/v1/#/calendar">Calendar</a></li>
+                            <li><a href="/api/v1/#/MeetingCalendar">Calendar</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrator <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Account</a></li>
                                     <li><a href="#">Users</a></li>
                                     <li><a href="#">Groups</a></li>
-                                    <li><a href="#">Sign out</a></li>
+                                    <li><a ng-click="logout()">Sign out</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -149,7 +115,7 @@
 
                     <!-- Sidebar -->
 
-                    <aside class="col-md-3 no-padding">
+                    <aside ng-if="!navigationValue" class="col-md-3 no-padding">
 
                         <nav class="global">
                             <ul class="nav nav-pills nav-stacked">
@@ -193,7 +159,7 @@ lorem
                                 <li><a href="tables.html">Tables</a></li>
                             </ul>
                         </nav>
-                    </aside>
+                    </aside >
                     <!-- Sidebar End -->
                  <ng-view></ng-view>
                 </div>
@@ -203,15 +169,11 @@ lorem
 
     </div>
 
-
-    <footer>
+    <footer ng-if="!navigationValue">
         <div id="footer-inner" class="container">
-            <div><span class="pull-right"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity - <a href="#">Details</a> | &copy; 2016. All rights reserved.</div>
+            <div><span class="pull-right"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity view- <a href="#">Details</a> | &copy; 2016. All rights reserved.</div>
         </div>
     </footer>
-
-
-
 
     <script src="/vendor/jquery.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
@@ -223,14 +185,16 @@ lorem
     <script src="/vendor/angular/angular-route.min.js"></script>
     <script src="/vendor/angular/angular-resource.js"></script>
     <script src="/vendor/angular/angular-sanitize.js"></script>
+    <script src="/vendor/satellizer/satellizer.min.js"></script>
     <script src="/vendor/moment.min.js"></script>
     <script src="/vendor/fullcalendar.min.js"></script>
+
     <script src="/js/app.js"></script>
     <script src="/js/controllers/DefaultContentController.js"></script>
-    <script src="/js/controllers/CalendarController.js"></script>
+    <script src="/js/controllers/MeetingCalendarController.js"></script>
     <script src="/js/controllers/MeetingListController.js"></script>
     <script src="/js/directives/meetingThumbnail.js"></script>
-
+    <script src="/js/controllers/HomeController.js"></script>
 </body>
 
 </html>

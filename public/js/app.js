@@ -1,10 +1,11 @@
-var app = angular.module('app', ['ngSanitize', 'ngResource', 'ngRoute'])
-    .config(function ($routeProvider, $locationProvider) {
-
-        $routeProvider.when('/calendar',
+var app = angular.module('app',
+    ['ngSanitize', 'ngResource', 'ngRoute', 'satellizer'])
+    .config(function ($routeProvider,  $authProvider) {
+        $authProvider.loginUrl = '/api/v1/user/signin';
+        $routeProvider.when('/MeetingCalendar',
             {
-                templateUrl: '/templates/Calendar.html',
-                controller: 'CalendarController'
+                templateUrl: '/templates/MeetingCalendar.html',
+                controller: 'MeetingCalendarController'
             });
 
         $routeProvider.when('/meetings',
@@ -18,24 +19,36 @@ var app = angular.module('app', ['ngSanitize', 'ngResource', 'ngRoute'])
                 templateUrl: '/templates/DefaultContent.html',
                 controller: 'DefaultContentController'
             });
+        $routeProvider.when('/login',
+            {
+                templateUrl: '/templates/login.html',
+                controller: 'HomeController'
+            });
 
 
-        $routeProvider.otherwise({redirectTo: '/'});
+        $routeProvider.otherwise({redirectTo: '/login'});
         //$locationProvider.html5Mode(true);
     });
 
-app.controller('meetingController', function ($scope, $http, $window) {
+app.controller('meetingController', function ($scope, $http,$auth, $window) {
 
 
     $scope.meeting = {};
     $scope.countMeeting = 2;
 
+
+    $scope.logout = function __logout() {
+        $auth.logout();
+        $window.location.href = '/api/v1/#/login'; //redirect to home
+    };
+
+
+
    $scope.storeMeeting = function (meeting, newMeetingForm) {
         return $http.post("/api/v1/meeting", {
                 "time": meeting.time,
                 "title": meeting.title,
-                "description": meeting.description,
-                "user_id": meeting.userId
+                "description": meeting.description
             }
         ).then(function (response) {
                 $scope.results = response.data;
@@ -48,16 +61,25 @@ app.controller('meetingController', function ($scope, $http, $window) {
         //if (confirm('Really delete this?')) {
                 return $http.delete("/api/v1/meeting/" + id, {}
                 ).then(function (response) {
+
                         $scope.meetingInfo = response.data;
-                        $window.location.href = '/api/v1/#/'; //redirect to home
-                        $window.location.href = '/api/v1/#/meetings'; //redirect to home
+                        $window.location.href = '/api/v1/#/'; //redirect to home  pour actualiser la liste des reunions dans le tableau
+                        $window.location.href = '/api/v1/#/meetings'; //
+                        $scope.meetingInfo.class = "alert-success"
+                    },
+                    function(response){
+                        $scope.meetingInfo = response.data;
+                        $scope.meetingInfo.class = "alert-danger";
+
                     });
         //}
     };
+
+
 
     $scope.cancelEdit = function () {
         window.location = "http://localhost:8000/api/v1/#/index";
     }
 
-})
+});
 

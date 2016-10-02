@@ -3,9 +3,6 @@ Route::group(['prefix' => 'api/v1'], function () {
     Route::get('/', function(){
         return View::make('index');
     });
-    Route::get('/user/signin', function(){
-        return View::make('login');
-    });
 
     Route::resource('meeting', 'MeetingController', [
         'except' => ['edit', 'create']
