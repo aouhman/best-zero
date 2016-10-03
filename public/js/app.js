@@ -2,6 +2,15 @@ var app = angular.module('app',
     ['ngSanitize', 'ngResource', 'ngRoute', 'satellizer'])
     .config(function ($routeProvider,  $authProvider) {
         $authProvider.loginUrl = '/api/v1/user/signin';
+
+
+
+        $routeProvider.when('/contacts',
+            {
+                templateUrl: '/templates/ContactList.html',
+                controller: 'ContactListController'
+            });
+
         $routeProvider.when('/MeetingCalendar',
             {
                 templateUrl: '/templates/MeetingCalendar.html',
@@ -16,8 +25,8 @@ var app = angular.module('app',
 
         $routeProvider.when('/index',
             {
-                templateUrl: '/templates/DefaultContent.html',
-                controller: 'DefaultContentController'
+                templateUrl: '/templates/NewMeeting.html',
+                controller: 'NewMeetingController'
             });
         $routeProvider.when('/login',
             {

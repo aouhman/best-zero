@@ -121,7 +121,7 @@
                             <ul class="nav nav-pills nav-stacked">
                                 <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> Overview</a></li>
                                 <li><a href="activity.html"><i class="fa fa-heartbeat"></i> Latest Activity</a></li>
-                                <li><a href="contacts.html"><i class="fa fa-book"></i>  Contacts <span class="badge pull-right">2</span></a></li>
+                                <li><a href="/api/v1/#/contacts"><i class="fa fa-book"></i>  Contacts <span class="badge pull-right">2</span></a></li>
                                 <li><a href="tasks.html"><i class="fa fa-tasks"></i> Tasks <span class="badge bg-warning pull-right">1</span></a></li>
                                 <li><a href="notes.html"><i class="fa fa-file-text"></i> Notes</a></li>
                                 <li><a href="/api/v1/#/meetings"><i class="fa fa-users"></i> Meetings <span class="badge bg-warning pull-right"> @{{countMeeting}}</span></a></li>
@@ -190,10 +190,15 @@ lorem
     <script src="/vendor/fullcalendar.min.js"></script>
 
     <script src="/js/app.js"></script>
-    <script src="/js/controllers/DefaultContentController.js"></script>
+    <script src="/js/controllers/NewMeetingController.js"></script>
     <script src="/js/controllers/MeetingCalendarController.js"></script>
     <script src="/js/controllers/MeetingListController.js"></script>
     <script src="/js/directives/meetingThumbnail.js"></script>
+
+    <script src="/js/controllers/NewContactController.js"></script>
+    <script src="/js/controllers/ContactListController.js"></script>
+    <script src="/js/directives/contactThumbnail.js"></script>
+
     <script src="/js/controllers/HomeController.js"></script>
 </body>
 
