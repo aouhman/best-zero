@@ -15,7 +15,7 @@
 <link rel="stylesheet" media="screen" href="/css/style.css" />
 <link rel="stylesheet" media="screen" href="/css/fullcalendar.min.css" />
 </head>
-<body ng-controller="meetingController">
+<body ng-controller="MeetingController">
     <div id="wrapper">
         <header ng-if="!navigationValue">
             <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -27,7 +27,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="/api/v1/#/index">Best-zero</a>
+                      <a class="navbar-brand" ng-click="cancelEdit()" href="/api/v1/#/meeting">Best-zero</a>
                     </div>
 
 
@@ -176,8 +176,8 @@ lorem
     </footer>
 
     <script src="/vendor/jquery.min.js"></script>
-    <script src="/vendor/bootstrap.min.js"></script>
     <script src="/vendor/global.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
     <script src="/vendor/underscore-1.4.4.min.js"></script>
     <script src="/vendor/angular/angular.js"></script>
     <script src="/vendor/angular/angular.min.js"></script>
@@ -190,12 +190,11 @@ lorem
     <script src="/vendor/fullcalendar.min.js"></script>
 
     <script src="/js/app.js"></script>
-    <script src="/js/controllers/NewMeetingController.js"></script>
+    <script src="/js/controllers/MeetingController.js"></script>
     <script src="/js/controllers/MeetingCalendarController.js"></script>
     <script src="/js/controllers/MeetingListController.js"></script>
     <script src="/js/directives/meetingThumbnail.js"></script>
-
-    <script src="/js/controllers/NewContactController.js"></script>
+    <script src="/js/controllers/ContactController.js"></script>
     <script src="/js/controllers/ContactListController.js"></script>
     <script src="/js/directives/contactThumbnail.js"></script>
 

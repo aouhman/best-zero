@@ -5,107 +5,18 @@
             <header class="panel-heading clearfix">
                 <a data-target="documentation/index.html" href="#" class="btn btn-default pull-right" rel="#overlay"><i class="fa fa-question-circle"></i></a>
                 <h2 class="panel-title">
-                    Meeting Calendar
+
                 </h2>
             </header>
-            <section class="panel-body">
-                <div id='calendar'></div>
-                <div class="alert alert-info leading">
-                    <strong>DISCLAIMER :</strong> <a href="http://fullcalendar.io/" target="_blank" rel="nofollow">FullCalendar</a> is great for displaying events, but it isn't a complete solution for event content-management. Beyond dragging an event to a different time/day, you cannot change an event's name or other associated data. It is up to you to add this functionality through FullCalendar's event hooks.
+            <section class="panel-body container-fluid">
+                <div>
+
+                    <meeting-thumbnail/>
+
                 </div>
+
             </section>
         </div>
     </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--<script src="../../cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>-->
-<!--<script src="../../cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>-->
-
-<!--<script type="text/javascript" src="js/global.js"></script>-->
-
-<script type='text/javascript'>
-    $(document).ready(function() {
-
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            defaultDate: '2015-02-12',
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: '2015-02-01'
-                },
-                {
-                    title: 'Long Event',
-                    start: '2015-02-07',
-                    end: '2015-02-10'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2015-02-09T16:00:00'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2015-02-16T16:00:00'
-                },
-                {
-                    title: 'Conference',
-                    start: '2015-02-11',
-                    end: '2015-02-13'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2015-02-12T10:30:00',
-                    end: '2015-02-12T12:30:00'
-                },
-                {
-                    title: 'Lunch',
-                    start: '2015-02-12T12:00:00'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2015-02-12T14:30:00'
-                },
-                {
-                    title: 'Happy Hour',
-                    start: '2015-02-12T17:30:00'
-                },
-                {
-                    title: 'Dinner',
-                    start: '2015-02-12T20:00:00'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: '2015-02-13T07:00:00'
-                },
-                {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: '2015-02-28'
-                }
-            ]
-        });
-
-    });
-</script>
-

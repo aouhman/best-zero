@@ -29,11 +29,11 @@
                             {{results.msg}}
                             </p>
                         </div>
-                        <form popover action="" name="NewMeetingForm" class="form-horizontal" >
+                        <form popover action="" name="editMeetingForm" class="form-horizontal" >
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     Meeting Title<br />
-                                    <input class="form-control"  id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting"/>
+                                    <input class="form-control"  id="meetingTitle" ng-model="meeting.title" type="text" placeholder="Title of your Meeting" required/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -45,12 +45,13 @@
                             <div class="form-group">
                                 <div class="col-sm-12">
                                     Meeting Description<br />
-                                    <textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..."></textarea>
+                                    <textarea class="form-control" id="meetingDescription" ng-model="meeting.description" title="Description of the meeting ..." required>{{meeting.description}}</textarea>
 
                                 </div>
                             </div>
                             <hr />
-                            <button type="submit" ng-click="storeMeeting(meeting,newMeetingForm)" class="btn btn-primary">Save</button>
+                            <button type="submit" ng-if="meeting.id"  ng-click="saveMeeting(meeting,editMeetingForm,meeting.id)"class="btn btn-primary">Save</button>
+                            <button type="submit" ng-if="!meeting.id" ng-click="storeMeeting(meeting,editMeetingForm)" class="btn btn-success">New</button>
                             <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
 
                         </form>

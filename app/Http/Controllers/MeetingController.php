@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use Carbon\Carbon\Carbon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,6 +47,12 @@ class MeetingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+//            'time' => 'required|date_format:YmdHie'
+        ]);
+
         if(!$user = JWTAuth::parseToken()->authenticate()){
             return response()->json(['msg'=>'User not found'],404);
         }
@@ -90,17 +96,11 @@ class MeetingController extends Controller
      */
     public function show($id)
     {
-        $meeting = [
-            'title' => 'Title',
-            'description' => 'Description',
-            'time' => 'Time',
-            'user_id' => 'User Id',
-            'view_meetings' => [
-                'href' => 'api/v1/meeting',
-                'method' => 'GET'
-            ]
+        $meeting = Meeting::with('users')->where('id', $id)->firstOrFail();
+        $meeting->view_meetings = [
+            'href' => 'api/v1/meeting',
+            'method' => 'GET'
         ];
-
         $response = [
             'msg' => 'Meeting information',
             'meeting' => $meeting
@@ -117,11 +117,12 @@ class MeetingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'description' => 'required',
-            'time' => 'required|date_format:YmdHie'
-        ]);
+
+//        $this->validate($request, [
+//            'title' => 'required',
+//            'description' => 'required',
+//            'time' => 'required|date_format:YmdHie'
+//        ]);
         if(!$user = JWTAuth::parseToken()->authenticate()){
             return response()->json(['msg'=>'User not found'],404);
         }
@@ -130,15 +131,18 @@ class MeetingController extends Controller
         $time = $request->input('time');
         $user_id = $user->id;
         $meeting = Meeting::with('users')->findOrFail($id);
+
         if (!$meeting->users()->where('users.id', $user_id)->first()) {
             return response()->json(['msg' => 'user not registered for meeting, update not successful'], 401);
         }
-        $meeting->time = Carbon::createFromFormat('YmdHie', $time);
+
+        $meeting->time =  $time  ;// Carbon::createFromFormat('YmdHie', $time);
         $meeting->title = $title;
         $meeting->description = $description;
         if (!$meeting->update()) {
             return response()->json(['msg' => 'Error during updating']);
         }
+
         $meeting->view_meeting = [
             'href' => 'api/v1/meeting/' . $meeting->id,
             'method' => 'GET'

@@ -18,6 +18,7 @@ class CreateContactsTable extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->text('company');
+            $table->integer('userId');
         });
     }
 
