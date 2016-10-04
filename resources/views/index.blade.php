@@ -17,7 +17,7 @@
 </head>
 <body ng-controller="MeetingController">
     <div id="wrapper">
-        <header ng-if="!navigationValue">
+        <header>
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                         <hr />
-                                        <button class="btn btn-primary" type="button">Add contact</button>
+                                        <button class="btn btn-primary" type="button" ng-click="cancelEdit()">Add contact</button>
                                         <button class="btn btn-default popover-close" type="button">Cancel</button>
                                     </form>
 '><i class="fa fa-plus-circle"></i> New Contact</button>
@@ -115,7 +115,7 @@
 
                     <!-- Sidebar -->
 
-                    <aside ng-if="!navigationValue" class="col-md-3 no-padding">
+                    <aside class="col-md-3 no-padding">
 
                         <nav class="global">
                             <ul class="nav nav-pills nav-stacked">
@@ -169,14 +169,13 @@ lorem
 
     </div>
 
-    <footer ng-if="!navigationValue">
+    <footer>
         <div id="footer-inner" class="container">
             <div><span class="pull-right"><a href="#">Documentation</a> | <a href="#">Feedback</a></span>Last account activity view- <a href="#">Details</a> | &copy; 2016. All rights reserved.</div>
         </div>
     </footer>
 
     <script src="/vendor/jquery.min.js"></script>
-    <script src="/vendor/global.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
     <script src="/vendor/underscore-1.4.4.min.js"></script>
     <script src="/vendor/angular/angular.js"></script>
@@ -197,6 +196,7 @@ lorem
     <script src="/js/controllers/ContactController.js"></script>
     <script src="/js/controllers/ContactListController.js"></script>
     <script src="/js/directives/contactThumbnail.js"></script>
+    <script src="/vendor/global.js"></script>
 
     <script src="/js/controllers/HomeController.js"></script>
 </body>
