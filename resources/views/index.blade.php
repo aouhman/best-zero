@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" id="top" lang="en">
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" >
@@ -176,6 +176,7 @@ lorem
     </footer>
 
     <script src="/vendor/jquery.min.js"></script>
+    <script src="/vendor/jquery-ui.min.js"></script>
     <script src="/vendor/bootstrap.min.js"></script>
     <script src="/vendor/underscore-1.4.4.min.js"></script>
     <script src="/vendor/angular/angular.js"></script>
@@ -187,6 +188,7 @@ lorem
     <script src="/vendor/satellizer/satellizer.min.js"></script>
     <script src="/vendor/moment.min.js"></script>
     <script src="/vendor/fullcalendar.min.js"></script>
+    <script src="/vendor/calendar.js"></script>
 
     <script src="/js/app.js"></script>
     <script src="/js/controllers/MeetingController.js"></script>

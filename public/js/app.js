@@ -1,5 +1,5 @@
 var app = angular.module('app',
-    ['ngSanitize', 'ngResource', 'ngRoute', 'satellizer'])
+    ['ngSanitize', 'ngResource', 'ngRoute', 'satellizer','ui.calendar'])
     .config(function ($routeProvider,  $authProvider) {
         $authProvider.loginUrl = '/api/v1/user/signin';
 
