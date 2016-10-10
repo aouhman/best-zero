@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -25,6 +26,7 @@ class MeetingController extends Controller
      */
     public function index()
     {
+
         $meetings = Meeting::all();
         foreach ($meetings as $meeting) {
             $meeting->view_meeting = [

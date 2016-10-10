@@ -9,7 +9,7 @@ var app = angular.module('app',
                 controller: 'ContactListController'
             });
 
-        $routeProvider.when('/MeetingCalendar',
+        $routeProvider.when('/meetingCalendar',
             {
                 templateUrl: '/templates/MeetingCalendar.html',
                 controller: 'MeetingCalendarController'

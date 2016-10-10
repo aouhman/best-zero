@@ -11,6 +11,9 @@ Route::group(['prefix' => 'api/v1'], function () {
     Route::resource('meeting/registration', 'RegistrationController', [
         'only' => ['store', 'destroy']
     ]);
+    Route::get('calendar', [
+        'uses' => 'RegistrationController@index'
+    ]);
     Route::post('user', [
         'uses' => 'AuthController@store'
     ]);

@@ -5,12 +5,28 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use JWTAuth;
+
 class RegistrationController extends Controller
 {
     public function __construct()
     {
         $this->middleware('jwt.auth');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        if(!$user = JWTAuth::parseToken()->authenticate()){
+            return response()->json(['msg'=>'User not found'],404);
+        }
+        $meetings = Meeting::AllMeetingByUser($user->id);
+        return response()->json($meetings, 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -19,14 +35,19 @@ class RegistrationController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$user = JWTAuth::parseToken()->authenticate()){
+            return response()->json(['msg'=>'User not found'],404);
+        }
+
         $this->validate($request, [
             'meeting_id' => 'required',
-            'user_id' => 'required',
         ]);
+
         $meeting_id = $request->input('meeting_id');
-        $user_id = $request->input('user_id');
+
         $meeting = Meeting::findOrFail($meeting_id);
-        $user    = User::findOrFail($user_id);
+
+
         $message = [
             'msg' => 'User is already registered for meeting',
             'user' => $user,
@@ -36,6 +57,7 @@ class RegistrationController extends Controller
                 'method' => 'DELETE'
             ]
         ];
+
         if($meeting->users()->where('users.id',$user->id)->first()){
           return response()->json($message,404);
         };
@@ -51,14 +73,56 @@ class RegistrationController extends Controller
         ];
         return response()->json($response, 201);
     }
+
+
+
+
+//original
+//    public function store(Request $request)
+//    {
+//
+//
+//        $this->validate($request, [
+//            'meeting_id' => 'required',
+//            'user_id' => 'required',
+//        ]);
+//        $meeting_id = $request->input('meeting_id');
+//        $user_id = $request->input('user_id');
+//        $meeting = Meeting::findOrFail($meeting_id);
+//        $user    = User::findOrFail($user_id);
+//
+//
+//        $message = [
+//            'msg' => 'User is already registered for meeting',
+//            'user' => $user,
+//            'meeting' => $meeting,
+//            'unregister' => [
+//                'href' => 'api/v1/meeting/registration/' . $meeting->id,
+//                'method' => 'DELETE'
+//            ]
+//        ];
+//        if($meeting->users()->where('users.id',$user->id)->first()){
+//            return response()->json($message,404);
+//        };
+//        $user->meetings()->attach($meeting);
+//        $response = [
+//            'msg' => 'User registered for meeting',
+//            'meeting' => $meeting,
+//            'user' => $user,
+//            'unregister' => [
+//                'href' => 'api/v1/meeting/registration/'.$meeting->id,
+//                'method' => 'DELETE'
+//            ]
+//        ];
+//        return response()->json($response, 201);
+//    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //http://localhost:8000/api/v1/meeting/registration/4?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDAwXC9hcGlcL3YxXC91c2VyXC9zaWduaW4iLCJpYXQiOjE0Njk5MTg0MDIsImV4cCI6MTQ2OTkyMjAwMiwibmJmIjoxNDY5OTE4NDAyLCJqdGkiOiI4YmQwZTA0NThjZDYwNTIyM2YyMjNkNzZmNmFkZTEzNCJ9.znQunX5ZAq31kqkzSDegdqic9gFrMKwYC4gLCw4m70Y
-    //http://localhost:8000/api/v1/meeting/registration/2?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjUsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdDo4MDAwXC9hcGlcL3YxXC91c2VyXC9zaWduaW4iLCJpYXQiOjE0Njk5MTg0MDIsImV4cCI6MTQ2OTkyMjAwMiwibmJmIjoxNDY5OTE4NDAyLCJqdGkiOiI4YmQwZTA0NThjZDYwNTIyM2YyMjNkNzZmNmFkZTEzNCJ9.znQunX5ZAq31kqkzSDegdqic9gFrMKwYC4gLCw4m70Y
     public function destroy($id)
     {
         $meeting = Meeting::findOrFail($id);

@@ -88,7 +88,7 @@
                             </li>
                             <li class="active"><a href="dashboard.html">Dashboard</a></li>
                             <li><a href="profile.html">Profile</a></li>
-                            <li><a href="/api/v1/#/MeetingCalendar">Calendar</a></li>
+                            <li><a href="/api/v1/#/meetingCalendar">Calendar</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrator <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
