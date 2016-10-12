@@ -2,7 +2,10 @@
 
 app.controller('MeetingController', function MeetingController($scope, $http,$auth, $window) {
 
-    $scope.countMeeting = 2;
+         $http.get("/api/v1/meeting").then(function (response) {
+             $scope.countMeeting  = response.data.meetings.length;
+        });
+
 
     $scope.logout = function __logout() {
         $auth.logout();

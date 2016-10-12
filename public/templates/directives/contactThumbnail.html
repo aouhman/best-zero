@@ -1,0 +1,35 @@
+<section class="panel-body">
+    <ul id="contacts" class="listing list-view clearfix">
+        <li class="contact clearfix" ng-repeat="contact in results.contacts">
+            <div class="clearfix">
+                <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
+                <a class="more" href="/templates/janeroe.html">&raquo;</a>
+                <span class="timestamp"> {{contact.created_at|date}}</span>
+
+                <a href="/templates/profile.html" class="name" style="white-space: normal !important;">{{contact.firstName + ' ' + contact.lastName }}</a>
+                <div class="entry-meta">
+                    Contact added by {{ contact.userId }}
+                </div>
+            </div>
+        </li>
+        <li class="company clearfix">
+            <div class="clearfix">
+                <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
+                <a class="more" href="/templates/othercompany.html">&raquo;</a>
+                <span class="timestamp">Dec 28, 2010</span>
+                <a href="/templates/profile.html" class="name">Other Company Inc.</a>
+                <div class="entry-meta">
+                    Company added by Administrator
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</section>

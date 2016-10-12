@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    protected $fillable = ['firstName','lastName','company','user_id'];
+    protected $fillable = ['firstName','lastName','company','userId'];
 }

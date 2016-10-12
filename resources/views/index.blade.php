@@ -34,30 +34,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul id="main-nav" class="nav navbar-nav">
                             <li class="action">
-                                <button class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new contact" data-placement="bottom" data-content=' <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                First Name<br />
-                                                <input class="form-control" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                Last Name<br />
-                                                <input class="form-control" type="text" /><br />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                Company<br />
-                                                <input class="form-control" type="text" />
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <button class="btn btn-primary" type="button" ng-click="cancelEdit()">Add contact</button>
-                                        <button class="btn btn-default popover-close" type="button">Cancel</button>
-                                    </form>
-'><i class="fa fa-plus-circle"></i> New Contact</button>
+                                <button class="btn btn-primary navbar-btn" onclick=" $('#myModal').modal('show');" data-toggle="popover"><i class="fa fa-plus-circle"></i> New Contact</button>
     <button popover id="popover-content"  class="btn btn-primary navbar-btn" data-toggle="popover" data-title="Add new meeting" data-placement="bottom" data-content='
 '><i class="fa fa-plus-circle"></i> New meeting</button>
                             </li>
@@ -127,41 +104,15 @@
                                 <li><a href="/api/v1/#/meetings"><i class="fa fa-users"></i> Meetings <span class="badge bg-warning pull-right"> @{{countMeeting}}</span></a></li>
                             </ul>
                         </nav>
-lorem
-                        <nav class="subnav recent">
-                            <h4>Recent Contacts</h4>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a class="contact" href="profile.html" data-toggle="popover" data-trigger="hover" title="Profile Summary" data-content='<span class="avatar">
-                                        </span>
-                                        <p>John Doe<br>
-                                        <small class="text-muted">Some Company LTD</small></p>
-                                        <address>123 Some Street, LA</address>
-'><h5>John Doe</h5><h6>Some Company LTD</h6></a>
-                                </li>
-                                <li>
-                                    <a class="contact" href="profile.html" data-toggle="popover" data-trigger="hover" title="Profile Summary" data-content='<span class="avatar">
-                                        </span>
-                                        <p>Jane Roe<br>
-                                        <small class="text-muted">Some Company LTD</small></p>
-                                        <address>123 Some Street, LA</address>
-'><h5>Jane Roe</h5><h6>Other Company Inc.</h6></a>
-                                </li>
-                            </ul>
-                        </nav>
 
-                        <nav class="subnav">
-                            <h4>Style Templates</h4>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><a href="layouts.html">Layouts</a></li>
-                                <li><a href="styles.html">Styles</a></li>
-                                <li><a href="forms.html">Forms</a></li>
-                                <li><a href="tables.html">Tables</a></li>
-                            </ul>
-                        </nav>
                     </aside >
                     <!-- Sidebar End -->
+
                  <ng-view></ng-view>
+                 {{--modals page--}}
+                 <div ng-include="'/templates/Contact.html'"></div>
+
+
                 </div>
             </div>
             <div id="push"></div>
@@ -192,6 +143,7 @@ lorem
 
     <script src="/js/app.js"></script>
     <script src="/js/controllers/MeetingController.js"></script>
+    <script src="/js/controllers/ContactController.js"></script>
     <script src="/js/controllers/MeetingCalendarController.js"></script>
     <script src="/js/controllers/MeetingListController.js"></script>
     <script src="/js/directives/meetingThumbnail.js"></script>

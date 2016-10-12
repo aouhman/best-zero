@@ -21,4 +21,8 @@ Route::group(['prefix' => 'api/v1'], function () {
         'uses' => 'AuthController@signin'
     ]);
 
+    Route::resource('contact', 'ContactController', [
+        'except' => ['edit', 'create']
+    ]);
+
 });
