@@ -1,5 +1,14 @@
-<!-- Main Section -->
+<script>
+    $('#showme').click(function(){
+        $(this).focus().parent().next().fadeIn();
+        return false;
+    }).blur(function(){
+        $(this).parent().next().fadeOut();
+        return false;
+    });
+</script>
 
+<!-- Main Section -->
 <section class="col-md-9 no-padding">
     <div class="main-section">
 
@@ -15,8 +24,8 @@
                         </div>
 
                         <div class="view-switcher">
-                            <h2 class="panel-title">All People &amp; Companies <a href="#">&darr;</a></h2>
-                            <ul>
+                            <h2 class="panel-title">All People &amp; Companies <a  id="showme" href="#/contacts" >&darr;</a></h2>
+                            <ul >
                                 <li><a href="#">All People</a></li>
                                 <li><a href="#">All Companies</a></li>
                                 <li><a href="#">All People &amp; Companies</a></li>
