@@ -15,7 +15,7 @@ class MeetingController extends Controller
     public function __construct()
     {
          $this->middleware('jwt.auth',['only'=>[
-             'update','store','destroy']
+             'update','store','destroy','index']
          ]);
     }
 

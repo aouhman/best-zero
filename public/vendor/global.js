@@ -98,6 +98,7 @@ $(document).ready(function() {
     // setup the view switcher
     $('.main-content > header .view-switcher > h2 > a').click(function(){
         $(this).focus().parent().next().fadeIn();
+
         return false;
     }).blur(function(){
         $(this).parent().next().fadeOut();

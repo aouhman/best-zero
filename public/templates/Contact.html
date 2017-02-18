@@ -1,0 +1,54 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="ContactController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">
+                </h4>
+            </div>
+            <div ng-if="results.msg"  class="alert alert-success alert-dismissable fade in" style="height: 50px">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p>
+                    {{results.msg}}
+                </p>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" name="editContactForm">
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            First Name<br />
+                            <input class="form-control" type="text"  ng-model="contact.firstName" />
+                        </div>
+                        <div class="col-sm-6">
+                            Last Name<br />
+                            <input class="form-control" type="text"  ng-model="contact.lastName" /><br />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            First Name<br />
+                            <input class="form-control" type="text"  ng-model="contact.firstName" />
+                        </div>
+                        <div class="col-sm-6">
+                            Last Name<br />
+                            <input class="form-control" type="text"  ng-model="contact.lastName" /><br />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            Company<br />
+                            <input class="form-control" type="text"  ng-model="contact.company" />
+                        </div>
+                    </div>
+                    <hr />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!--<button type="submit" ng-if="contact.id"  ng-click="saveContact(contact,editContactForm,contact.id)" class="btn btn-primary">Save</button>-->
+                <button type="submit" ng-click="storeContact(contact, editContactForm)" class="btn btn-success">New</button>
+                <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

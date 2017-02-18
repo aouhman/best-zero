@@ -1,5 +1,14 @@
-<!-- Main Section -->
+<script>
+    $('#showme').click(function(){
+        $(this).focus().parent().next().fadeIn();
+        return false;
+    }).blur(function(){
+        $(this).parent().next().fadeOut();
+        return false;
+    });
+</script>
 
+<!-- Main Section -->
 <section class="col-md-9 no-padding">
     <div class="main-section">
 
@@ -15,8 +24,8 @@
                         </div>
 
                         <div class="view-switcher">
-                            <h2 class="panel-title">All People &amp; Companies <a href="#">&darr;</a></h2>
-                            <ul>
+                            <h2 class="panel-title">All People &amp; Companies <a  id="showme" href="#/contacts" >&darr;</a></h2>
+                            <ul >
                                 <li><a href="#">All People</a></li>
                                 <li><a href="#">All Companies</a></li>
                                 <li><a href="#">All People &amp; Companies</a></li>
@@ -28,61 +37,7 @@
                             </ul>
                         </div>
                     </header>
-                    <section class="panel-body">
-                        <ul id="contacts" class="listing list-view clearfix">
-                            <li class="contact clearfix">
-                                <div class="clearfix">
-                                    <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
-                                    <a class="more" href="/templates/janeroe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="/templates/profile.html" class="name">Jane Roe</a>
-                                    <div class="entry-meta">
-                                        Contact added by Administrator
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="company clearfix">
-                                <div class="clearfix">
-                                    <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
-                                    <a class="more" href="/templates/othercompany.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="/templates/profile.html" class="name">Other Company Inc.</a>
-                                    <div class="entry-meta">
-                                        Company added by Administrator
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="contact clearfix">
-                                <div class="clearfix">
-                                    <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
-                                    <a class="more" href="/templates/johndoe.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#" class="name">John Doe</a>
-                                    <div class="entry-meta">
-                                        Contact added by Administrator
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="company clearfix">
-                                <div class="clearfix">
-                                    <div class="avatar"><img src="/images/circle-icons/64px/profle.png" width="32" height="32" /></div>
-                                    <a class="more" href="/templates/somecompany.html">&raquo;</a>
-                                    <span class="timestamp">Dec 28, 2010</span>
-                                    <a href="#" class="name">Some Company LTD</a>
-                                    <div class="entry-meta">
-                                        Company added by Administrator
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="pagination">
-                            <li><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </section>
+                    <contact-thumbnail/>
                 </div>
             </div>
 
